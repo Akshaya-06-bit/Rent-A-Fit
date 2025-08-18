@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Dashboard</title>
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body>
+  <div class="heading">
+    <h1>Owner Notifications</h1>
+    <a href="/home">Back to Home</a>
+  </div>
+
+  <% if (!notifications || notifications.length === 0) { %>
+    <p>No notifications.</p>
+  <% } else { %>
+    <ul>
+      <% notifications.forEach(n => { %>
+        <li style="margin:10px 0;">
+          <strong><%= n.message %></strong>
+          <div>Product: <%= n.productId ? n.productId.name : 'Deleted product' %></div>
+          <div>At: <%= n.createdAt.toLocaleString() %></div>
+          <div>Status: <%= n.read ? 'Read' : 'Unread' %></div>
+          <% if (!n.read) { %>
+            <form action="/orders/owner/notifications/<%= n._id %>/read" method="POST" style="margin-top:5px;">
+              <button type="submit">Mark as Read</button>
+            </form>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Invoice container */
+.invoice-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Main heading */
+.invoice-container h1:first-of-type {
+    color: #1C3738;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* Success message */
+.invoice-container h1:nth-of-type(2) {
+    color: #444;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Owner details */
+.invoice-container h1:nth-of-type(3) {
+    color: #a1a3a4;
+    font-size: 1rem;
+    font-weight: normal;
+    background: #eef5ff;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .invoice-container {
+        padding: 20px;
+    }
+    .invoice-container h1 {
+        font-size: 1rem;
+    }
+}

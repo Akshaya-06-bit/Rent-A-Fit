@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Renting Page</title>
+  <link rel="stylesheet" href="/stylesheets/buy.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Your Cart</h2>
+    <p>View items you've added.</p>
+    <a href="/cart" class="cart-button">Go to Cart</a>
+    <h2>Filter</h2>
+    <a href="/filter/women" class="cart-button">Women</a>
+    <a href="/filter/men" class="cart-button">Men</a>
+    <a href="/filter/kids" class="cart-button">Kids</a>
+  </div>
+
+  <div class="product-section">
+    <% if (!products || products.length === 0) { %>
+      <h1>Items are not Available for Rent</h1>
+    <% } else { %>
+      <h1>Available for Rent</h1>
+      <div class="product-list">
+        <% products.forEach(product => { %>
+          <div class="product">
+            <img src="<%= '/multer/' + (product.image || 'placeholder.png') %>" alt="<%= product.name %>">
+            <h3><%= product.name %></h3>
+            <p>₹<%= product.price %></p>
+            <% if (product.discount) { %>
+              <p>Discount: <%= product.discount %> %</p>
+            <% } %>
+            <p>Size: <%= product.size %></p>
+            <p>Down Payment: ₹<%= product.downpayment || 0 %></p>
+            <p>Category: <%= product.category %></p>
+            <p><%= product.description %></p>
+
+            <form action="/cart/add" method="POST" style="margin-top: 10px;">
+              <input type="hidden" name="productId" value="<%= product._id %>">
+              <input type="number" name="quantity" value="1" min="1" style="width: 60px;">
+              <button type="submit" class="cart-button">Add to Cart</button>
+            </form>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

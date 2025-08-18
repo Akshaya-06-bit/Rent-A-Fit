@@ -1,0 +1,80 @@
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: #817F75;
+    display: flex;
+    flex-direction: column;   /* stack heading + container */
+    align-items: center;      /* center container horizontally */
+}
+
+/* Heading at the top */
+.heading {
+    text-align: center;
+    font-size: 36px;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+/* Center box, only as big as needed */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 2rem;
+    width: fit-content;    /* shrink to fit content */
+    max-width: 90%;        /* prevent overflow on small screens */
+}
+
+/* Each section (Create/Login) */
+.one, .two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Headings inside container */
+.container h1 {
+    font-size: 22px;
+    color: #333333;
+    text-shadow: 1px 1px #fff3;
+}
+
+/* Stylish link buttons */
+.container a {
+    text-decoration: none;
+    padding: 10px 25px;
+    background-color: #b9b7b8;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container a:hover {
+    background-color: #3a393a;
+    transform: scale(1.05);
+}
+
+/* Responsive fallback */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

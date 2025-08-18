@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body>
+  <div class="heading">
+    <h1>CLOTHING HOUSE</h1>
+    <h3>WELCOME, @<%= user.email %></h3>
+    <a href="/logout">Logout</a>
+    <a href="/home/owner" style="margin-left: 10px;">Owner Dashboard</a>
+  </div>
+
+  <div class="buyit">
+    <h1>RENT_A_FIT</h1>
+    <p>Unleash your fitness potential without the upfront cost. Rent the fit, not the burden.</p>
+    <a href="/home/rent">Rent an Outfit</a>
+  </div>
+
+  <div class="sellit">
+    <h1>GIVE_A_FIT</h1>
+    <p>Give your outfits for rent and make profits</p>
+    <a href="/home/sellit">Upload an Outfit</a>
+  </div>
+</body>
+</html>

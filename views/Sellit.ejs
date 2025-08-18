@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Product</title>
+  <link rel="stylesheet" href="/stylesheets/sell.css" />
+</head>
+<body>
+  <h2>Upload Product</h2>
+
+  <form action="/uploadproduct" method="POST" enctype="multipart/form-data">
+    <div>
+      <input type="text" name="name" placeholder="Product Name" required />
+    </div>
+    <br/>
+
+    <div>
+      <input type="file" name="image" accept="image/*" required />
+    </div>
+    <br/>
+
+    <div>
+      <input type="number" name="price" placeholder="Price" required />
+    </div>
+    <br/>
+
+    <br/>
+
+    <div>
+      <input type="number" name="downpayment" placeholder="Down Payment" />
+    </div>
+    <br/>
+
+    <div>
+      <select name="size" required>
+        <option value="">Select Size</option>
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+    </div>
+    <br/>
+
+    <div>
+      <textarea name="description" placeholder="Product Description"></textarea>
+    </div>
+    <br/>
+
+    <div>
+      <select name="status" required>
+        <option value="">Select Status</option>
+        <option value="available">Available</option>
+        <option value="rented">Rented</option>
+        <option value="sold">Sold</option>
+      </select>
+    </div>
+    <br/>
+
+    <div>
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option value="men">Men</option>
+        <option value="women">Women</option>
+        <option value="kids">Kids</option>
+      </select>
+    </div>
+    <br/>
+
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>

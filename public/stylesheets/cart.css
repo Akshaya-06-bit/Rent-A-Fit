@@ -1,0 +1,77 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Empty cart message */
+p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Cart item container */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  padding: 15px;
+  margin: 15px auto;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Product image */
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Product name */
+.cart-item h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  flex: 1;
+  color: #333;
+}
+
+/* Price and quantity */
+.cart-item p {
+  margin: 0;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
