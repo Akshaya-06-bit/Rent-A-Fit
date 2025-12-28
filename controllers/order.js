@@ -48,13 +48,13 @@ exports.buyNow = asyncHandler(async (req, res) => {
   res.render("Invoice", { price: total, ownerid: product.ownerId.toString() });
 });
 
-exports.getOwnerDashboard = asyncHandler(async (req, res) => {
-  // Show owner notifications + owned products
-  const notifications = await Notification.find({ ownerId: req.user.id })
-    .sort({ createdAt: -1 })
-    .populate("productId");
-  res.render("OwnerDashboard", { notifications });
-});
+// exports.getOwnerDashboard = asyncHandler(async (req, res) => {
+//   // Show owner notifications + owned products
+//   const notifications = await Notification.find({ ownerId: req.user.id })
+//     .sort({ createdAt: -1 })
+//     .populate("productId");
+//   res.render("OwnerDashboard", { notifications });
+// });
 
 exports.markNotificationRead = asyncHandler(async (req, res) => {
   const NotificationModel = require("../models/Notification");

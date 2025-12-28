@@ -2,29 +2,51 @@
 <html>
 <head>
   <title>Owner Dashboard</title>
-  <link rel="stylesheet" href="/stylesheets/home.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="heading">
-    <h1>Owner Notifications</h1>
-    <a href="/home">Back to Home</a>
-  </div>
+  <h1>Welcome, <%= user.email %></h1>
+  <h3>Total Earned: ₹<%= totalEarned %></h3>
 
+  <% if (orders && orders.length > 0) { %>
+    <canvas id="monthlyEarningChart" width="600" height="300"></canvas>
+
+    <script>
+      const labels = <%- JSON.stringify(chartLabels) %>;
+      const data = <%- JSON.stringify(chartData) %>;
+
+      const ctx = document.getElementById('monthlyEarningChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Monthly Earnings',
+            data: data,
+            fill: true,
+            borderColor: 'rgba(255, 159, 64, 1)',
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+            tension: 0.3
+          }]
+        },
+        options: { responsive: true }
+      });
+    </script>
+  <% } else { %>
+    <p>No earnings yet.</p>
+  <% } %>
+
+  <h2>Notifications</h2>
   <% if (!notifications || notifications.length === 0) { %>
     <p>No notifications.</p>
   <% } else { %>
     <ul>
       <% notifications.forEach(n => { %>
-        <li style="margin:10px 0;">
+        <li>
           <strong><%= n.message %></strong>
-          <div>Product: <%= n.productId ? n.productId.name : 'Deleted product' %></div>
+          <div>Product: <%= n.productId ? n.productId.name : 'Deleted' %></div>
           <div>At: <%= n.createdAt.toLocaleString() %></div>
           <div>Status: <%= n.read ? 'Read' : 'Unread' %></div>
-          <% if (!n.read) { %>
-            <form action="/orders/owner/notifications/<%= n._id %>/read" method="POST" style="margin-top:5px;">
-              <button type="submit">Mark as Read</button>
-            </form>
-          <% } %>
         </li>
       <% }) %>
     </ul>

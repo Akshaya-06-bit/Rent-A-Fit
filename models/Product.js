@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
   image: String,
   price: { type: Number, required: true, min: 0 },
-  downpayment: { type: Number, default: 0, min: 0 },
+ // downpayment: { type: Number, default: 0, min: 0 },
   size: { type: String, enum: ["XS", "S", "M", "L", "XL", "XXL"] },
   description: String,
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
