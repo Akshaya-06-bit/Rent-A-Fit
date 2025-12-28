@@ -18,7 +18,7 @@ body {
 .heading {
     text-align: center;
     font-size: 36px;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 2rem 1rem;
 }
 
