@@ -1,5 +1,7 @@
 # 👗 Rent-a-Fit
 
+Live Demo : https://rent-a-fit.onrender.com/
+
 Rent-a-Fit is a full-stack web application where users can **rent, buy, or sell clothes** online.  
 The platform provides a smooth shopping experience with authentication, product listings, cart management, image uploads, and order placement.
 
