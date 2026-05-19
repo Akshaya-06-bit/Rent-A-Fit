@@ -1,27 +1,97 @@
- Rent-a-Fit
+# 👗 Rent-a-Fit
 
-Rent-a-Fit is a full-stack web application where users can rent, buy, or sell clothes. It features authentication, product listings, cart management, and order placement.
+Rent-a-Fit is a full-stack web application where users can **rent, buy, or sell clothes** online.  
+The platform provides a smooth shopping experience with authentication, product listings, cart management, image uploads, and order placement.
 
- Features
+---
 
- User Authentication – Register/Login system with JWT
+# 🚀 Features
 
- Product Management – Add, rent, buy, or sell clothes
+## 🔐 User Authentication
+- Register/Login system using JWT Authentication
+- Secure password hashing
+- Protected routes for authorized users
 
- Cart System – Add items to cart & checkout
+## 👕 Product Management
+- Add clothing products
+- Upload and preview product images
+- Rent clothes
+- Buy clothes
+- Sell clothes
 
- Checkout – Buy all items in cart with one click
+## 🛒 Cart System
+- Add items to cart
+- Remove items from cart
+- View total cart price
+- Checkout all items with one click
 
- Order Tracking – Orders stored in database
+## 📦 Order Management
+- Place orders successfully
+- Store orders in MongoDB
+- Track rented/purchased items
 
- Image Uploads – Preview & upload product images
+## 🎨 Responsive UI
+- Modern and clean interface
+- Mobile responsive design
+- Built using EJS/React + Tailwind CSS
 
- Responsive UI – Clean and modern design (EJS/React + CSS/Tailwind)
+---
 
- Tech Stack
+# 🛠️ Tech Stack
 
-Frontend: EJS / React, CSS / Tailwind
-Backend: Node.js, Express.js
-Database: MongoDB Atlas
-Authentication: JWT (JSON Web Tokens)
-Deployment: Render (Backend), Vercel/Netlify (Frontend)
+## Frontend
+- HTML
+- CSS / Tailwind CSS
+- JavaScript
+- EJS / React
+
+## Backend
+- Node.js
+- Express.js
+
+## Database
+- MongoDB Atlas
+
+## Authentication
+- JWT (JSON Web Tokens)
+
+## Deployment
+- Render (Backend)
+- Vercel / Netlify (Frontend)
+
+---
+
+# 📂 Folder Structure
+
+```bash
+Rent-a-Fit/
+│
+├── backend/
+│   ├── models/
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── uploads/
+│   ├── server.js
+│   └── package.json
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── package.json
+│
+├── screenshots/
+├── README.md
+└── .gitignore
+```
+
+---
+
+
+# 👨‍💻 Author
+
+Developed by **Akshaya B**
+
+⭐ If you like this project, give it a star on GitHub!
