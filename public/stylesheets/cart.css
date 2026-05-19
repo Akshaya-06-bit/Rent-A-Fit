@@ -1,77 +1,182 @@
-/* General styling */
-body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+/* --- Global Resets & Premium Typography --- */
+* {
   margin: 0;
-  padding: 20px;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Heading */
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff; /* Pure white backdrop */
+  color: #000000;
+  line-height: 1.5;
+  padding: 60px 10%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Cart Totals & Header Panel --- */
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid #111111; /* Thin black architectural dividing line */
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+}
+
+.headings h1 {
   font-size: 2rem;
-  color: #222;
+  font-weight: 900;
+  letter-spacing: 5px; /* Signature wide luxury spacing */
+  text-transform: uppercase;
 }
 
-/* Empty cart message */
+.headings h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Fallback Empty state text spacing */
 p {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #777;
+  font-size: 1.1rem;
+  color: #777777;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
 }
 
-/* Cart item container */
+/* --- Cart Items Rows Layout --- */
 .cart-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  background: #fff;
-  padding: 15px;
-  margin: 15px auto;
-  border-radius: 10px;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 30px 0;
+  border-bottom: 1px solid #e5e5e5; /* Soft bottom frame dividing lines */
+  gap: 30px;
+  transition: background-color 0.2s ease;
 }
 
 .cart-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fafafa; /* Subtle highlight hint while scrolling rows */
 }
 
-/* Product image */
+/* Luxury Editorial Product Thumbnail Aspect Bounds */
 .cart-item img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 120px; /* Mirroring fashion portrait framing ratios */
   object-fit: cover;
-  border-radius: 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #eeeeee;
 }
 
-/* Product name */
 .cart-item h3 {
-  margin: 0;
   font-size: 1.1rem;
-  flex: 1;
-  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #000000;
+  max-width: 250px;
 }
 
-/* Price and quantity */
+/* Pricing Summary Columns text rules */
 .cart-item p {
-  margin: 0;
-  font-weight: bold;
-  color: #444;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444444;
+  margin-top: 0; /* Clears global spacing adjustments */
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-  .cart-item {
-    flex-direction: column;
-    text-align: center;
+/* --- Interactive Action Control Buttons --- */
+.remove-btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 12px 28px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Specific styling for the 'Remove' Button trigger element configuration */
+form[action^="/cart/delete/"] .remove-btn {
+  background-color: #ffffff;
+  color: #777777;
+  border-color: #cccccc;
+}
+
+form[action^="/cart/delete/"] .remove-btn:hover {
+  background-color: #a30000; /* Sophisticated deep red for deletions */
+  color: #ffffff;
+  border-color: #a30000;
+  box-shadow: 0 6px 12px rgba(163, 0, 0, 0.1);
+}
+
+/* Specific styling for the 'Buy Now' main checkout feature button link */
+form[action^="/cart/buynow/"] .remove-btn {
+  background-color: #000000; /* Solid high contrast weight default */
+  color: #ffffff;
+  border-color: #000000;
+}
+
+form[action^="/cart/buynow/"] .remove-btn:hover {
+  background-color: #0046be; /* Morphs seamlessly to premium consumer blue accent */
+  border-color: #0046be;
+  box-shadow: 0 8px 16px rgba(0, 70, 190, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- Responsive Layout Adjustments --- */
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
   }
-  .cart-item img {
-    width: 100px;
-    height: 100px;
+
+  .headings {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .headings h1 {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+  }
+
+  .headings h2 {
+    font-size: 1.2rem;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    position: relative;
+    padding: 25px 0;
+  }
+
+  .cart-item h3 {
+    flex: 1 1 calc(100% - 120px); /* Forces description alongside image on mobile */
+  }
+
+  .cart-item p {
+    flex: 1 1 100%;
+    margin-left: 110px; /* Clean tracking offset block alignment values */
+  }
+
+  /* Structural adjustment for custom action layout rules inside dynamic forms wrapper tags */
+  .cart-item form {
+    margin-left: 0 !important; /* Clears inline alignment logic rules */
+    flex: 1;
+  }
+
+  .remove-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 10px;
   }
 }

@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
   size: { type: String, enum: ["XS", "S", "M", "L", "XL", "XXL"] },
   description: String,
   ownerId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  status: { type: String, enum: ["available", "rented", "sold"], default: "available" },
+   status: { type: String, enum: ["available", "rented", "sold"], default: "available" },
   category: { type: String, enum: ["men", "women", "kids"], required: true }
 }, { timestamps: true });
 

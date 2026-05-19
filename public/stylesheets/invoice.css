@@ -1,58 +1,116 @@
-/* General page styling */
+/* --- Global Resets & Premium Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #fcfcfc; /* Ultra-light architectural gray to make the invoice card stand out */
+  color: #000000;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Perfectly dynamic center framing on any viewport */
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Invoice container */
+/* --- The Editorial Invoice Manifest Container --- */
 .invoice-container {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 550px;
+  padding: 60px 50px;
+  border: 1px solid #e5e5e5; /* Clean outer frame bounding border */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.02); /* Ghost drop shadow elevation layer */
+  text-align: center;
+  position: relative;
 }
 
-/* Main heading */
-.invoice-container h1:first-of-type {
-    color: #1C3738;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+/* Top elegant branding accent line to lock with consumer theme design rules */
+.invoice-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #0046be; /* Signature Consumer Royal Blue */
 }
 
-/* Success message */
+/* --- Micro Typography Layout Structures --- */
+
+/* Element 1: Total Price Callout */
+.invoice-container h1:nth-of-type(1) {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+/* Element 2: Status/Delivery Context Notice */
 .invoice-container h1:nth-of-type(2) {
-    color: #444;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Open luxury readability spacing rules */
+  color: #008450; /* Sophisticated accent green indicating a successful system process */
+  background-color: rgba(0, 132, 80, 0.04); /* Softest pastel padding tint frame block */
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
-/* Owner details */
+/* Element 3: Internal Metadata string tracking (Owner ID) */
 .invoice-container h1:nth-of-type(3) {
-    color: #a1a3a4;
-    font-size: 1rem;
-    font-weight: normal;
-    background: #eef5ff;
-    padding: 8px;
-    border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #777777; /* Soft layout rendering color out of focus hierarchy */
+  border-top: 1px dashed #e5e5e5; /* Classic ticket-stub receipt bounding break line */
+  padding-top: 25px;
+  margin-bottom: 45px;
 }
 
-/* Responsive */
+/* --- Minimal Navigational Return Link Action Button --- */
+.invoice-container a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 14px 40px;
+  transition: all 0.25s ease;
+}
+
+.invoice-container a:hover {
+  background-color: #0046be; /* Morphs seamlessly back to signature consumer blue */
+  border-color: #0046be;
+  color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 70, 190, 0.15);
+}
+
+/* --- Mobile Responsive Rules Breakpoint --- */
 @media (max-width: 600px) {
-    .invoice-container {
-        padding: 20px;
-    }
-    .invoice-container h1 {
-        font-size: 1rem;
-    }
+  .invoice-container {
+    padding: 40px 25px;
+  }
+
+  .invoice-container h1:nth-of-type(1) {
+    font-size: 1.5rem;
+  }
+
+  .invoice-container h1:nth-of-type(2) {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 12px 15px;
+  }
 }

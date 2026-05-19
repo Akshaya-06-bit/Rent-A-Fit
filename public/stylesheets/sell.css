@@ -1,60 +1,178 @@
-/* styles.css */
+/* --- Global Resets & Premium Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff; /* Matching pure white backdrop */
+  color: #000000;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers the upload form beautifully on screen */
+  padding: 60px 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* --- Clean Editorial Header --- */
+h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 5px; /* Wide luxury spacing */
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #111111; /* Thin black architectural line */
+  margin-bottom: 40px;
+}
+
+/* --- Form Layout Structure --- */
 form {
-    background: white;
-    padding: 20px 25px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    width: 350px;
+  width: 100%;
+  max-width: 500px; /* Clean, structured form width */
+  display: flex;
+  flex-direction: column;
 }
 
-form input, 
-form select, 
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 14px;
-    transition: border-color 0.2s ease;
+/* Custom cleaning to neutralize the raw <br/> tags in your HTML layout */
+form br {
+  display: none; 
 }
 
-form input:focus, 
-form select:focus, 
-form textarea:focus {
-    border-color: #919293;
+form > div {
+  margin-bottom: 28px; /* Standardizes spacious, elegant layout gaps instead of <br/> */
 }
 
-form button {
-    width: 100%;
-    padding: 10px;
-    background: #c5c6c7;
-    color: rgb(8, 8, 8);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background 0.2s ease;
-}
-
-form button:hover {
-    background: #6b6b6b;
-}
-
+/* --- Architectural Input Fields (Text, Number, Select, Textarea) --- */
+input[type="text"],
+input[type="number"],
+select,
 textarea {
-    resize: none;
+  width: 100%;
+  padding: 14px 0; /* Clear vertical breathing space */
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #cccccc; /* Sleek, muted bottom line */
+  border-radius: 0; /* Fixes native iOS default radius rendering */
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+/* Native drop-down layout overrides */
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23888888'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  padding-right: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Textarea specific structural sizing */
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Modern File Upload Button Customization */
+input[type="file"] {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555555;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 8px 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  margin-right: 15px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Placeholders formatting rule */
+::placeholder {
+  color: #888888;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* High-contrast focus line state when editing */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-bottom: 1px solid #000000;
+}
+
+/* --- Solid High-Contrast Upload Button --- */
+button[type="submit"] {
+  width: 100%;
+  background-color: #000000; /* Solid default brand black */
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #008450; /* Morphs beautifully to the signature Owner Emerald Green on hover */
+  border-color: #008450;
+  box-shadow: 0 10px 20px rgba(0, 132, 80, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- Mobile Responsive Tweak --- */
+@media (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+  
+  form > div {
+    margin-bottom: 22px;
+  }
 }

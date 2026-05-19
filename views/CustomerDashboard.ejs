@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="/stylesheets/consumer.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Welcome, <%= user.email %></h1>
+  <h1>Welcome</h1>
   <h3>Total Spent: ₹<%= totalSpent %></h3>
 
   <% if (orders && orders.length > 0) { %>
@@ -21,15 +22,37 @@
         data: {
           labels: labels,
           datasets: [{
-            label: 'Monthly Spending',
+            label: 'Monthly Spending (₹)',
             data: data,
             fill: true,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.3
+            borderColor: '#0046be', 
+            backgroundColor: 'rgba(0, 70, 190, 0.05)', 
+            borderWidth: 2,
+            pointBackgroundColor: '#0046be',
+            pointHoverRadius: 6,
+            tension: 0.25
           }]
         },
-        options: { responsive: true }
+        options: { 
+          responsive: true,
+          plugins: {
+            legend: {
+              labels: {
+                font: { family: 'Montserrat', size: 12, weight: '600' }
+              }
+            }
+          },
+          scales: {
+            y: { 
+              grid: { color: '#f0f0f0' },
+              ticks: { font: { family: 'Montserrat' } }
+            },
+            x: { 
+              grid: { display: false },
+              ticks: { font: { family: 'Montserrat' } }
+            }
+          }
+        }
       });
     </script>
   <% } else { %>

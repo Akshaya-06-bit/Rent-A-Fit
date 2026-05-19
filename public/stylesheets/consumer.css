@@ -1,0 +1,72 @@
+/* --- Global Resets & Premium Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff; /* Pure white editorial backdrop */
+  color: #000000;
+  line-height: 1.6;
+  padding: 60px 8%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Header Section --- */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Customer Metric Callout */
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #111111; /* Thin architectural dividing line */
+  margin-bottom: 50px;
+}
+
+/* --- Chart Layout Footprint --- */
+#monthlySpendingChart {
+  max-width: 100% !important;
+  margin-top: 20px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-top: 3px solid #0046be; /* Signature Renter Royal Blue Line */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Empty fallback typography state */
+p {
+  font-size: 1.1rem;
+  color: #777777;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-top: 30px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}

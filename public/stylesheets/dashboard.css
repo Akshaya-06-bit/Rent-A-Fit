@@ -1,0 +1,144 @@
+/* --- Global Resets & Premium Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff; /* Pure white editorial backdrop */
+  color: #000000;
+  line-height: 1.6;
+  padding: 60px 8%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Header Section --- */
+h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Owner Metric Callout Card */
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #111111; /* Thin architectural dividing line */
+  margin-bottom: 50px;
+}
+
+/* Highlight the actual money metric */
+h3::after {
+  content: "";
+  display: block;
+}
+
+/* --- Dashboard Grid Components --- */
+/* Creating an intuitive layout structure for canvas and items */
+#monthlyEarningChart {
+  max-width: 100% !important;
+  margin-bottom: 60px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-top: 3px solid #008450; /* Signature Owner Emerald Green Line */
+}
+
+/* Empty fallback typography states */
+p {
+  font-size: 1rem;
+  color: #777777;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+/* --- Notifications Feed --- */
+h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li {
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid #008450; /* Anchor points to Owner dashboard style */
+  transition: all 0.2s ease;
+}
+
+li:hover {
+  transform: translateX(4px);
+  background-color: #fafafa;
+}
+
+li strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #000000;
+  display: block;
+  margin-bottom: 10px;
+}
+
+li div {
+  font-size: 0.85rem;
+  color: #555555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+/* Status Pill Indicators */
+li div:last-child {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #f1f1f1;
+  color: #333333;
+  border-radius: 2px;
+}
+
+/* If item notification status says unread, catch emphasis implicitly */
+li:has(div:contains("Unread")) {
+  border-left-color: #0046be; /* Pops to signature accent notice color */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  body {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  li {
+    padding: 20px;
+  }
+}

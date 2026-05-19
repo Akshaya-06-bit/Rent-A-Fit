@@ -1,65 +1,123 @@
+/* --- Global Resets & Typography --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #c6c7d1;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffffff; /* Matching pure white backdrop */
+  color: #000000;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers the form perfectly on screen */
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
+}
 
-    .heading h1 {
-      color: #2b2d42;
-      margin-bottom: 20px;
-      font-size: 2.5rem;
-    }
+/* --- Editorial Page Header --- */
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 450px;
+}
 
-    .container {
-      background-color: #ffffff;
-      border-radius: 15px;
-      padding: 30px 40px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 400px;
-    }
+.heading h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 5px; /* Matching wide luxury spacing */
+  color: #000000;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #111111; /* Thin black architectural line */
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px 15px;
-      margin: 10px 0;
-      border: 1px solid #3b3b3c;
-      border-radius: 8px;
-      background-color: #cacbcb;
-      font-size: 1rem;
-      transition: border 0.3s, background 0.3s;
-    }
+/* --- Form Container Structure --- */
+.container {
+  width: 100%;
+  max-width: 450px; /* Clean, compact width for input forms */
+  background-color: #ffffff;
+  padding: 20px 0;
+}
 
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="password"]:focus {
-      border-color: #3b3b3c;
-      background-color: #cacbcb;
-      outline: none;
-    }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Balanced architectural whitespace between inputs */
+}
 
-    input[type="submit"] {
-      background-color: #cacbcb;
-      color: #ffffff;
-      padding: 12px;
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+/* --- Sleek Form Input Fields --- */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 16px 0; /* Vertical spacing only for an elegant underline style */
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #cccccc; /* Subtle clean gray bottom border */
+  border-radius: 0; /* Removes default mobile rounding */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
 
-    input[type="submit"]:hover {
-      background-color: #444545;
-    }
+/* Input Placeholder Styling */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #888888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Minimalist modern label look */
+}
+
+/* Sophisticated interactive focus state */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-bottom: 1px solid #000000; /* Turns deep black when user types */
+}
+
+/* --- Solid High-Contrast CTA Button --- */
+input[type="submit"] {
+  width: 100%;
+  background-color: #000000; /* Solid architectural black */
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+  -webkit-appearance: none; /* Fixes iOS native styling override */
+}
+
+input[type="submit"]:hover {
+  background-color: #0046be; /* Pops to the exact premium royal blue accent from the homepage */
+  border-color: #0046be;
+  box-shadow: 0 10px 20px rgba(0, 70, 190, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- Mobile Responsive Tweak --- */
+@media (max-width: 480px) {
+  body {
+    justify-content: flex-start; /* Flows naturally if screen height is tiny */
+    padding-top: 60px;
+  }
+
+  .heading h1 {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+  }
+}

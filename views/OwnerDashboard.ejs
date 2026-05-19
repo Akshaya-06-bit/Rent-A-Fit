@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>Owner Dashboard</title>
+  <link rel="stylesheet" href="/stylesheets/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Welcome, <%= user.email %></h1>
+  <h1>Welcome</h1>
   <h3>Total Earned: ₹<%= totalEarned %></h3>
 
   <% if (orders && orders.length > 0) { %>
@@ -16,21 +17,38 @@
       const data = <%- JSON.stringify(chartData) %>;
 
       const ctx = document.getElementById('monthlyEarningChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Monthly Earnings',
-            data: data,
-            fill: true,
-            borderColor: 'rgba(255, 159, 64, 1)',
-            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-            tension: 0.3
-          }]
-        },
-        options: { responsive: true }
-      });
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Monthly Earnings (₹)',
+      data: data,
+      fill: true,
+      // Premium dark emerald stroke
+      borderColor: '#008450', 
+      // Minimal transparent backdrop gradient mask
+      backgroundColor: 'rgba(0, 132, 80, 0.06)', 
+      borderWidth: 2,
+      pointBackgroundColor: '#008450',
+      tension: 0.2
+    }]
+  },
+  options: { 
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          font: { family: 'Montserrat', weight: '600' }
+        }
+      }
+    },
+    scales: {
+      y: { grid: { color: '#f0f0f0' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
     </script>
   <% } else { %>
     <p>No earnings yet.</p>
@@ -46,7 +64,7 @@
           <strong><%= n.message %></strong>
           <div>Product: <%= n.productId ? n.productId.name : 'Deleted' %></div>
           <div>At: <%= n.createdAt.toLocaleString() %></div>
-          <div>Status: <%= n.read ? 'Read' : 'Unread' %></div>
+          <!-- //<div>Status: <%= n.read ? 'Read' : 'Unread' %></div> -->
         </li>
       <% }) %>
     </ul>
